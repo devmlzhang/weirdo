@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weirdo.dao.UserDao">
+
+    <sql id="BASE_TABLE">
+        t_user
+    </sql>
+
+    <sql id="BASE_COLUMN">
+        user_id,user_name,password,phone
+    </sql>
+
+
+    <insert id="insert" parameterType="com.weirdo.model.UserDomain">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            user_name,password,
+            <if test="phone != null">
+                phone,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{userName, jdbcType=VARCHAR},#{password, jdbcType=VARCHAR},
+            <if test="phone != null">
+                #{phone, jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectUsers" resultType="com.weirdo.model.UserDomain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+    </select>
+
+
+    <select id="findById" resultType="com.weirdo.model.UserDomain" parameterType="int">
+        SELECT t.user_id AS userId,t.user_name AS userName,t.password,t.phone FROM t_user t WHERE t.user_id = #{id}
+    </select>
+
+
+</mapper>

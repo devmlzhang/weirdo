@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/task
+	http://www.springframework.org/schema/task/spring-task.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+
+	<bean id="persistence" class="org.eclipse.paho.client.mqttv3.persist.MemoryPersistence"></bean>
+	<bean id="clientFactory" class="org.springframework.integration.mqtt.core.DefaultMqttPahoClientFactory">
+		<property name="cleanSession" value="false"></property>
+		<property name="keepAliveInterval" value="60"></property>
+		<property name="connectionTimeout" value="30"></property>
+		<property name="persistence" ref="persistence"></property>
+	</bean>
+	<bean id="messageHandler" class="org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler">
+		<constructor-arg index="0" value="${mqtt_url}" />
+		<constructor-arg index="1" value="${mqtt_clientId}" />
+		<constructor-arg index="2" ref="clientFactory" />
+		<property name="async" value="false"></property>
+	</bean>
+</beans>

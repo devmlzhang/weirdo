@@ -1,0 +1,37 @@
+
+server:
+  port: 8010
+
+spring:
+  application:
+    name: microservice-consumer-user
+  thymeleaf:
+       prefix: classpath:/templates/
+       suffix: .html
+
+  activemq:
+     broker-url: tcp://127.0.0.1:61616
+     user: admin
+     password: admin
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+
+queue: mytest
+amq: tcp://127.0.0.1:61616
+
+mqtt_url: tcp://127.0.0.1:1883
+mqtt_clientId: weirdo-cliendId
+#amq过期时间,防止积压(秒)
+mqtt_expiration: 20
+
+
+
+
+
