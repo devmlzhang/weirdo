@@ -15,7 +15,7 @@ import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 public class MqttConfig {
 
 
-    /*@Bean
+    @Bean
     public MemoryPersistence memoryPersistence(){
         return new MemoryPersistence();
     }
@@ -41,6 +41,5 @@ public class MqttConfig {
         mqttPahoMessageHandler.setDefaultQos(0);
         return mqttPahoMessageHandler;
     }
-*/
 
 }

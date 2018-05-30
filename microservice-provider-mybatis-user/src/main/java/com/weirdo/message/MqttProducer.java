@@ -35,13 +35,12 @@ public class MqttProducer {
     public void send() {
         age++;
         UserDomain userEntity = new UserDomain(age, UUID.randomUUID().toString(), Integer.toString(age),"");
-       // String json = new JSONObject().toJSONString(userEntity);//将实体类转换成json字符串
-       // System.out.println("MqttProducer:" + json+" =======");
         WebsocketModel  websocketModel = new WebsocketModel();
         websocketModel.setData(userEntity);
         websocketModel.setType("message");
         websocketModel.setOperation("add");
         String s = new JSONObject().toJSONString(websocketModel);
+        System.out.println("MqttProducer:" + s);
         mqttClientService.sendMessage(DA_TOPIC,s);
 
     }
