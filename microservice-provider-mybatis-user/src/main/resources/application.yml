@@ -39,6 +39,12 @@ spring:
         user: admin
         password: admin
 
+    rabbitmq:
+      host: 10.2.100.17
+      port: 5672
+      username: rabbit1
+      password: 123456
+
 
     jpa:
       properties:

@@ -8,11 +8,19 @@ spring:
   thymeleaf:
        prefix: classpath:/templates/
        suffix: .html
+  resources:
+    static-locations: classpath:/resources/,classpath:/static/
 
   activemq:
      broker-url: tcp://127.0.0.1:61616
      user: admin
      password: admin
+
+  rabbitmq:
+        host: 10.2.100.17
+        port: 5672
+        username: rabbit1
+        password: 123456
 
 
 eureka:
@@ -30,6 +38,7 @@ mqtt_url: tcp://127.0.0.1:1883
 mqtt_clientId: weirdo-cliendId
 #amq过期时间,防止积压(秒)
 mqtt_expiration: 20
+
 
 
 

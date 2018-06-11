@@ -90,10 +90,6 @@
             <version>${activemq-version}</version>
         </dependency>
         <!-- camel包 -->
-      <!--  <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-commands-spring-boot</artifactId>
-        </dependency>-->
 
         <dependency>
             <groupId>org.apache.camel</groupId>
@@ -101,6 +97,10 @@
             <version>2.11.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
 
     </dependencies>
 

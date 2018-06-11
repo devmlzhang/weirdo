@@ -1,31 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<div >
-
-    <script src="/jquery.min.js"></script>
-    <script src="/mqttws31.js"></script>
-    <script src="/webSocket.js"></script>
-</div>
-
 <head>
-    <meta charset="UTF-8">
-    <title>测试</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Weirdo-后台首页</title>
 </head>
-
-<body>
-<span th:text="${info}"/>
-<div id="myId"></div>
-
-</body>
-
-<script th:inline="javascript">
-    mqtt_connect();
-
-    function handler(data) {
-       var username = data.userName;
-       var password = data.password;
-       var userId = data.userId;
-       alert(username+" "+password+" "+userId);
-    }
-</script>
+<th:frameset rows="72,*" frameborder="0" border="0" framespacing="0">
+	<th:frame src="http://localhost:8010/top" name="topFrame" noresize="noresize" id="leftFrame" />
+	<th:frame src="http://localhost:8010/main" name="mainFrame" id="mainFrame" />
+</th:frameset>
+<th:noframes><body></body></th:noframes>
 </html>

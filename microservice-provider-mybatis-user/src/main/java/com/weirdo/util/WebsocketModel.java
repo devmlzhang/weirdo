@@ -24,4 +24,12 @@ public class WebsocketModel {
 		this.type = type;
 	}
 
+	@Override
+	public String toString() {
+		return "WebsocketModel{" +
+				"type='" + type + '\'' +
+				", operation='" + operation + '\'' +
+				", data=" + data +
+				'}';
+	}
 }

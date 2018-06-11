@@ -6,13 +6,17 @@
     http://camel.apache.org/schema/spring 
     http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-    <camelContext id="AgdisCamelContext" xmlns="http://camel.apache.org/schema/spring">
+  <!--  <camelContext id="AgdisCamelContext" xmlns="http://camel.apache.org/schema/spring">
         <route>
             <from uri="jms:topic:Topic.Weirdo.DaChange" />
             <to uri="bean:com.weirdo.message.MessageFormatRouter?method=onMessage" />
         </route>
+        <route>
+            <from uri="jms:topic:Topic.Weirdo.DaChange" />
+            <to uri="bean:com.weirdo.message.MessageFormatRouter?method=onMessage2" />
+        </route>
 
-    </camelContext>
+    </camelContext>-->
 
     <!-- AMQ配置 -->
     <bean id="jms" class="org.apache.camel.component.jms.JmsComponent">

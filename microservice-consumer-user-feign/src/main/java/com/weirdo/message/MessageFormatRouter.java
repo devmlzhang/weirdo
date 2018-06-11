@@ -14,15 +14,21 @@ import java.io.UnsupportedEncodingException;
 
 @Service("alarmMsgJMSProcess")
 public class MessageFormatRouter  {
+    private static Logger logger = Logger.getLogger(MessageFormatRouter.class);
     /**
      * 使用Camel接收主题、队列消息
      */
-
-    private static Logger logger = Logger.getLogger(MessageFormatRouter.class);
     public boolean onMessage(Exchange exchange) {
         String msg = decodeMessage(exchange);
         logger.info(msg);
-        System.out.println("Camel收到消息："+msg);
+        System.out.println("Camel收到消息1："+msg);
+        return true;
+    }
+
+    public boolean onMessage2(Exchange exchange) {
+        String msg = decodeMessage(exchange);
+        logger.info(msg);
+        System.out.println("Camel收到消息2："+msg);
         return true;
     }
 
